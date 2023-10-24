@@ -6,10 +6,9 @@ export default function Footer() {
   <div className="container">
     {/* Footer Start */}
     <footer className="footer bg-transparent p-4 h-[52px] text-center  font-medium text-slate-600 dark:text-slate-400 md:text-left   ">
-      ©
-      Newsersssssssssss
+      © 2023 All Rights Reserved
       <span className="hidden float-right text-slate-600 dark:text-slate-400 md:inline-block">Crafted with <i className="text-red-500 ti ti-heart" /> by
-        Mannatthemes</span>
+        devMantse</span>
     </footer>
     {/* end Footer */}
   </div>
