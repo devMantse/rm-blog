@@ -25,7 +25,7 @@ export default async function Home() {
   return (
    <>
      <div className="flex flex-col">
-  <div className="relative w-full py-[70px]">
+  <div className="relative w-full py-20">
     <div className="container z-1">
       <div className="grid justify-center grid-cols-12 gap-4 mb-4 sm:grid-cols-12 md:grid-cols-12 lg:grid-cols-12 xl:grid-cols-12">
         <div className="col-span-12 sm:col-span-12 md:col-span-12 lg:col-span-12 xl:col-span-12 ">

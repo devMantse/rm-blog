@@ -1,40 +1,55 @@
 'use client'
 
-import React, { useEffect, useState } from 'react'
+import React, { Suspense, useEffect, useState } from 'react'
+
+import Loading from '../loading';
 
 export default function BlogDetails({ params }) {
-  const [blog, setBlog] = useState()
-  console.log("🚀 ~ file: page.jsx:7 ~ BlogDetails ~ blog:", blog)
+ const [blog, setBlog] = useState(null);
 
-  const id = params
-  console.log("🚀 ~ file: page.jsx:10 ~ BlogDetails ~ id:", id)
+  const id = params.id; // Assuming `id` is the property you want to use
 
+  const fetchBlogDetails = async () => {
+    try {
+      const res = await fetch(`http://localhost:3000/api/blog/${id}`);
 
+      if (res.status === 200) {
+        const data = await res.json();
+        const blogData = data.post;
+        setBlog(blogData);
+      } else {
 
-
-   useEffect(() => {
-    const fetchBlogDetails = async () => {
-      try {
-        const res = await fetch(`http://localhost:3000/api/blog/${id}`, {
-
-        });
-
-        if (res.status === 200) {
-          const data = await res.json();
-          setBlog(data.posts); // Update the state with the fetched blog data
-        } else {
-          // Handle the error case, e.g., set an error message
-        }
-      } catch (error) {
-        // Handle network or other errors
       }
-    };
+    } catch (error) {
+      console.error("Error fetching blog details:", error);
+    }
+  };
 
+  useEffect(() => {
     fetchBlogDetails();
-  }, [id]);
+  }, );
+
+
+
+  console.log("🚀 ~ file: page.jsx:755 ~ BlogDetails ~ blog:", blog?.title)
 
 
   return (
-    <div>ssss</div>
+   <>
+ <div className="flex flex-col">
+  <div className="relative w-full py-32">
+    <div className="container z-1">
+ {blog ? (
+        <div>
+          <h2 className='mb-8 text-7xl'>{blog?.title}</h2>
+          <p>{blog?.description}</p>
+        </div>
+      ) : (
+       <Suspense fallback={Loading}/>
+      )}
+     </div>
+     </div>
+    </div>
+   </>
   )
 }
