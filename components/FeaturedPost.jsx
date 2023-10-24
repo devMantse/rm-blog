@@ -29,7 +29,7 @@ function slugify(text) {
                     <span className="text-[12px] bg-pink-500/10 text-pink-500 dark:text-pink-600 rounded font-medium py-1 px-2 inline-block mb-3">{post.category}</span>
                     <span className="text-xs font-medium text-slate-700 dark:text-slate-300 ms-2">{post.date}</span>
                   </div>
-                  <a href={`/blog/${slugify(post.title)}`} className="text-[20px] md:text-3xl lg:text-3xl xl:text-[32px] leading-[30px] mb-5 md:mb-0 font-spectral font-semibold  text-gray-800 dark:text-slate-200 block">
+                  <a href={`/blog/${post.id}`} className="text-[20px] md:text-3xl lg:text-3xl xl:text-[32px] leading-[30px] mb-5 md:mb-0 font-spectral font-semibold  text-gray-800 dark:text-slate-200 block">
                    {post.title}
                   </a>
                   <div className="flex flex-wrap justify-between mt-auto">
